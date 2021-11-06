@@ -19,20 +19,60 @@ const UserForm = () =>  {
   };
 
 
-  const handleSubmit = event => {
+  
+// A function to make requests to our Workers API using a query
+// const handleSubmit = async query => {
+//   // The base URL for our API
+//   const url = "https://serverless-api.vamsi-peddi.workers.dev/posts"
+
+//   const resp = await fetch(url, {
+//     // Send a POST request
+//     method: "POST",
+//     // With a JSON-stringified body containing the query from our input
+//     body: JSON.stringify({ query }),
+//     // Set the `Content-type` header so our API knows that the request
+//     // is sending JSON
+//     headers: { 'Content-type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+//   })
+//   //return resp.json()
+// }
+
+const corsHeaders = { 
+  'Access-Control-Allow-Headers': '*',
+  'Access-Control-Allow-Methods': 'POST',
+  'Access-Control-Allow-Origin': '*'
+
+}
+  const handleSubmit = async request => {
     // event.preventDefault();
 
     const url = 'https://serverless-api.vamsi-peddi.workers.dev/posts'
     console.log("I am here")
+    // const headers = {
+    //   'Access-Control-Allow-Origin': '*',
+    //   'Content-type': 'application/json'
+    // }
+    if ( request.method === "OPTIONS") {
+      console.log("I am herecxxx")
+      return new Response("OK",{headers: corsHeaders})
+    }
+
     const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({ "data" : { title, username,content } } )
-    };
-    fetch(url, requestOptions)
+      method: 'POST',
+      headers: {
+        "content-type": "application/json",
+        ...corsHeaders
+      },
+      body: JSON.stringify({ data : { title, username,content } } )
+      //body: { "data" : { title, username,content } }
+  };
+    await fetch(url, requestOptions)
         .then(response => console.log('Submitted successfully'))
         .catch(error => console.log('Form submit error', error))
   };
+
+
+
 
   return (
     <div>

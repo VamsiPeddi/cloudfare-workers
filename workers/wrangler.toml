@@ -6,8 +6,8 @@ route = ""
 workers_dev = true
 compatibility_date = "2021-11-02"
 webpack_config = "webpack.config.js"
-kv_namespaces = [ 
-         { binding = "BLOG_KV", id = "d8bc7000252c4832bf9a883eabbe73ba"}
+kv-namespaces = [
+   { binding = "BLOGKV_PROD", id = "f4ed5fe466ff4b02b93bd1a55d13c77b" }
 ]
 
 [build]

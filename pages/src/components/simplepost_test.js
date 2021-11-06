@@ -31,8 +31,12 @@ const UserForm = () =>  {
     console.log("I am here")
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({ "data" : { title, username,content } } )
+        headers: {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "9e967ee8-1844-0472-0689-d12f7c87516b"
+        },
+        body: JSON.stringify({ data : { title, username,content } } )
         //body: { "data" : { title, username,content } }
     };
     fetch(url, requestOptions)

@@ -8,9 +8,9 @@
 
 import { htmlResponse } from '../lib/responses'
 
-const setCache = (key, data) => BLOG_KV.put(key, data)
-const getCache = key => BLOG_KV.get(key)
-//const getTotalPosts  = key => BLOG_KV.get("TotalPosts")
+const setCache = (key, data) => BLOGKV_PROD.put(key, data)
+const getCache = key => BLOGKV_PROD.get(key)
+//const getTotalPosts  = key => BLOGKV_PROD.get("TotalPosts")
 
 
 const titlePost = async request => {
