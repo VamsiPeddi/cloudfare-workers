@@ -66,6 +66,22 @@ After our KV is setup, we can begin to implement our api handlers.
 #### index.js - 
 Will route the incoming requests to their respective handlers. 
 #### titlelist.js - 
+This function is invoked when user makes get request on <site>/posts/
+This function checks in Cloudfare KV store to see if there is data. If not it just add 2 default records
+If there is data in KV , It will fecth all keys and corresponding values and form a json  array and return to the client
+we are also maintaining TotalPosts in KV. this is useful to add new POSTs
+user invokes the https request http://127.0.0.1:8787/posts/
+this program return [{"title":"My First Post","username":"coolguy123","content":"Hey Y'all!"},{"title":"Story About my Dogs","username":"kn0thing","content":"So the other day I was in the yard, and..."},{"title":"My 3rd Post","username":"coolguy134","content":"Hey Y'all!"},{"title":"My4th Post","username":"coolguy134","content":"Hey Y'all!"}]
+   
+#### posttile.js - 
+ this function is invoked by client using POST request
+ This function reqads totalposts and add 1 to it and write back totalpost into KV
+ Also writes new data to KV
+ Payload for post request should be as follows
+     {
+              "data" : {"title":"My 10th Post","username":"coolguy44444","content":"Hey Love Cloudfare KV"}
+    }
+   
 
 
 ### Publishing our pages
@@ -114,6 +130,22 @@ Add the following code to your index.js or App.js to get CSS components:
 ```bash
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
+   
+### Code Explanation: 
+
+#### app.js - Routes browser requests 
+
+#### posts.js 
+Make a GET  API call to  Cloudfare serverless API and displays all the posts 
+   
+
+#### simplepost.js 
+Make a POST API call to  Cloudfare serverless API and posts user new blog content. 
+      
+   
+Will route the incoming requests to their respective handlers. 
+#### titlelist.js - 
+   
 ### Running and Testing
 
 In the project directory, you can run:
