@@ -27,6 +27,12 @@ const titlePost = async request => {
     await setCache(newkey, JSON.stringify(data))
     await setCache('TotalPosts', newkey)
 	return htmlResponse('SUCCESS')
+    // data = 'OK'
+    // const headers = {
+	// 	'Access-Control-Allow-Origin': '*',
+	// 	'Content-type': 'application/json'
+	//   }
+	// return new Response(data, { headers })
 }
 
 

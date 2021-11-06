@@ -7,7 +7,9 @@ import titleGet from './handlers/titleget'
 import titleList from './handlers/titlelist'
 
 
+
 addEventListener('fetch', event => {
+
 	event.respondWith(handleRequest(event.request))
 })
 

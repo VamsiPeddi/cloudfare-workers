@@ -37,31 +37,33 @@ const UserForm = () =>  {
 //   //return resp.json()
 // }
 
-const corsHeaders = { 
-  'Access-Control-Allow-Headers': '*',
-  'Access-Control-Allow-Methods': 'POST',
-  'Access-Control-Allow-Origin': '*'
+// const corsHeaders = { 
+//   'Access-Control-Allow-Headers': '*',
+//   'Access-Control-Allow-Methods': 'POST',
+//   'Access-Control-Allow-Origin': '*'
 
-}
-  const handleSubmit = async request => {
+// }
+  const handleSubmit = async event => {
+
     // event.preventDefault();
-
+    // let request = event.request
+    // console.log(event)
     const url = 'https://serverless-api.vamsi-peddi.workers.dev/posts'
     console.log("I am here")
     // const headers = {
     //   'Access-Control-Allow-Origin': '*',
     //   'Content-type': 'application/json'
     // }
-    if ( request.method === "OPTIONS") {
-      console.log("I am herecxxx")
-      return new Response("OK",{headers: corsHeaders})
-    }
+    // if ( request.method === "OPTIONS") {
+    //   console.log("I am herecxxx")
+    //   return new Response("OK",{headers: corsHeaders})
+    // }
 
     const requestOptions = {
       method: 'POST',
+      mode: 'no-cors',
       headers: {
-        "content-type": "application/json",
-        ...corsHeaders
+        "content-type": "application/json"
       },
       body: JSON.stringify({ "data" : { title, username,content } } )
       //body: { "data" : { title, username,content } }
