@@ -63,7 +63,7 @@ const corsHeaders = {
         "content-type": "application/json",
         ...corsHeaders
       },
-      body: JSON.stringify({ data : { title, username,content } } )
+      body: JSON.stringify({ "data" : { title, username,content } } )
       //body: { "data" : { title, username,content } }
   };
     await fetch(url, requestOptions)
