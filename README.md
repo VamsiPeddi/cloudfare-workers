@@ -1,11 +1,13 @@
-# Cloudfare General Assignment 
+# Cloudfare Serverless API and React JS Frontend
+
+This is the javascript code for creating serverless api that serves blog platform. Users can submit the blogs using React JS based Frontend Website. The Frontend makes calls to CloudFare Workers api's which are serverless. 
 
 ## Main Links
 Serverless Api - Worker: 
-### `https://serverless-api.vamsi-peddi.workers.dev/`
+### [https://serverless-api.vamsi-peddi.workers.dev/](https://serverless-api.vamsi-peddi.workers.dev/)
 
 Cloudfare Pages: 
-### `cloudfare-workers.pages.dev`
+### [https://cloudfare-workers.pages.dev](https://cloudfare-workers.pages.dev)
 
 
 ## Backend
@@ -41,6 +43,9 @@ First you must generate the wrangler workers project. We have generated a projec
 ```bash
 wrangler generate my-ts-project https://github.com/cloudflare/worker-typescript-template
 ```
+
+### KV 
+
 Before we start implementing the api handlers we have to setup wrangler_kv - the key value storage system for Workers. 
 Command to create kv 
 
@@ -48,11 +53,20 @@ Command to create kv
 wrangler kv:namespace create "MY_KV"
 ```
 Add the following lines to wrangler.toml to finish KV-Store setup:
+
 kv-namespaces = [
    { binding = "MY_KV", id = "<your_account_id>" }
 ]
 
 After our KV is setup, we can begin to implement our api handlers. 
+
+
+### Code Explanation: 
+
+#### index.js - 
+Will route the incoming requests to their respective handlers. 
+#### titlelist.js - 
+
 
 ### Publishing our pages
 
