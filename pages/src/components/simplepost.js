@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import { Link } from "@reach/router";
 import { Navbar, Nav } from "react-bootstrap";
 import { Container, Row } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+
 
 
 // [{"id":1,"title":"My First Post","username":"coolguy123","content":"Hey Y'all!"},{"id":2,"title":"Story About my Dogs","username":"kn0thing","content":"So the other day I was in the yard, and..."}]
@@ -132,6 +132,7 @@ const UserForm = () =>  {
         Submit
       </button>
     </form>
+
     </Card.Text>
               <Button href="/" variant="primary">Go Back</Button>
           </Card.Body>
@@ -139,9 +140,6 @@ const UserForm = () =>  {
         </Card>
       </Row>
       </Container>
-    <p>
-        <Link to="/">Go back</Link>
-      </p>
     </div>
   )
 }

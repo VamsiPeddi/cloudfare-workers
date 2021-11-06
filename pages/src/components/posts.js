@@ -4,6 +4,7 @@
     import { Card } from "react-bootstrap";
     import { Button } from "react-bootstrap";
     import { Col } from "react-bootstrap";
+    // import { Like } from './like';
 
     const Posts = () => {
       const [posts, setPosts] = useState([]);
@@ -52,6 +53,7 @@
                     <Card.Title>{post.title}</Card.Title>
                     <Card.Text>
                       Info about the blog...............
+                      
                     </Card.Text>
                   <Button variant="primary" href={`/posts/${post.id}`}>Read More</Button>
                   </Card.Body>
@@ -61,8 +63,6 @@
           ))}
           </Row>
           </Container>
-          
-          
         </div>
       );
     };
