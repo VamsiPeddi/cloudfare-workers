@@ -1,5 +1,11 @@
 import React, {useState} from "react";
 import { Link } from "@reach/router";
+import { Navbar, Nav } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+
+
 // [{"id":1,"title":"My First Post","username":"coolguy123","content":"Hey Y'all!"},{"id":2,"title":"Story About my Dogs","username":"kn0thing","content":"So the other day I was in the yard, and..."}]
 const UserForm = () =>  {
   const [title, settitle] = useState('')
@@ -78,6 +84,23 @@ const UserForm = () =>  {
 
   return (
     <div>
+           <Navbar bg="primary" variant="dark">
+            <Container>
+              <Navbar.Brand href="/">Home</Navbar.Brand>
+              <Nav className="me-auto">
+                <Nav.Link href="/posts/newblog">Publish Blog</Nav.Link>
+              </Nav>
+            </Container>
+      </Navbar>
+      <Container className = "ml-3"> 
+      <Row className = "mt-3"> 
+        <Card className="text-center mb-3" bg="light">
+          <Card.Header>Publish Form</Card.Header>
+          <Card.Body>
+            <Card.Title>Fill in the form below to publish your blog</Card.Title>
+              <Card.Text>
+              
+
     <form onSubmit={handleSubmit}>
       <div>
         <label>title </label>
@@ -109,6 +132,13 @@ const UserForm = () =>  {
         Submit
       </button>
     </form>
+    </Card.Text>
+              <Button href="/" variant="primary">Go Back</Button>
+          </Card.Body>
+          <Card.Footer className="text-muted">2 days ago</Card.Footer>
+        </Card>
+      </Row>
+      </Container>
     <p>
         <Link to="/">Go back</Link>
       </p>

@@ -5,14 +5,6 @@ export const htmlResponse = html =>
 		headers: { 'content-type': 'text/html' , 'Access-Control-Allow-Origin': '*' },
 	})
 
-export const JsonResponse = html =>
-new Response(html, {
-	headers: {
-		'Access-Control-Allow-Origin': '*',
-		'Content-type': 'application/json'
-	  },
-})
-
 
 export const notFoundResponse = () =>
 	new Response(notFoundHtml, {
