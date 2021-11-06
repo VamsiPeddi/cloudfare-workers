@@ -30,8 +30,8 @@ const defaultData = {
 
 // Following 2 lines of code set and get data into Cloudflare’s Workers KV - it’s a
 // simple key-value store that you can access inside of your Worker script to read data.
-const setCache = (key, data) => MYDATA.put(key, data)
-const getCache = key => MYDATA.get(key)
+const setCache = (key, data) => BLOG_KV.put(key, data)
+const getCache = key => BLOG_KV.get(key)
 
 // you can only fecth 1000 keys, hence we need to go into multiple fetchs using cursor
 async function* listAllKeys(namespace, options) {
@@ -71,7 +71,7 @@ async function titleList(request) {
 		setdefaultData(defaultData)
 	}
 	let myjsonlist = []
-	for await (const key of listAllKeys(MYDATA, {type: 'json'})) {
+	for await (const key of listAllKeys(BLOG_KV, {type: 'json'})) {
 		if ( key.name != "TotalPosts") {
 			const cache = await getCache(key.name)
 			myjsonlist.push(JSON.parse(cache))

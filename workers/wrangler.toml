@@ -1,13 +1,13 @@
 name = "serverless-api"
 type = "javascript"
 zone_id = ""
-account_id = "76c5488197e46bd2b2fd2b4d221ca3e2"
+account_id = "a3e495eaa05a2f834539734867acb774"
 route = ""
 workers_dev = true
 compatibility_date = "2021-11-02"
 webpack_config = "webpack.config.js"
-kv-namespaces = [
-    {binding = "MYDATA", id = "3a797ee404fa4e85a4a036ed31c5673a" , preview_id = "3a797ee404fa4e85a4a036ed31c5673a" }
+kv_namespaces = [ 
+         { binding = "BLOG_KV", id = "d8bc7000252c4832bf9a883eabbe73ba"}
 ]
 
 [build]

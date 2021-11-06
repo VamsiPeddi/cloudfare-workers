@@ -22,7 +22,7 @@ const UserForm = () =>  {
   const handleSubmit = event => {
     // event.preventDefault();
 
-    const url = 'https://serverless-api.bala-peddi.workers.dev/posts'
+    const url = 'https://serverless-api.vamsi-peddi.workers.dev/posts'
     console.log("I am here")
     const requestOptions = {
         method: 'POST',
@@ -73,6 +73,5 @@ const UserForm = () =>  {
     </div>
   )
 }
-
 
 export default UserForm;

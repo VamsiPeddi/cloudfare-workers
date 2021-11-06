@@ -17,7 +17,7 @@ const defaultData = {
 
   }
 
-const getCache = key => MYDATA.get(key)
+const getCache = key => BLOG_KV.get(key)
 
 
 // this functions check KV database , if there is no data it adds defaultData

@@ -1,5 +1,9 @@
     import React, { useEffect, useState } from "react";
-    import { Link } from "@reach/router";
+    import { Navbar, Nav } from "react-bootstrap";
+    import { Container, Row} from "react-bootstrap";
+    import { Card } from "react-bootstrap";
+    import { Button } from "react-bootstrap";
+    import { Col } from "react-bootstrap";
 
     const Posts = () => {
       const [posts, setPosts] = useState([]);
@@ -7,7 +11,7 @@
       useEffect(() => {
         const getPosts = async () => {
           const resp = await fetch(
-            "https://serverless-api.bala-peddi.workers.dev/posts"
+            "https://serverless-api.vamsi-peddi.workers.dev/posts"
           );
           const postsResp = await resp.json();
           setPosts(postsResp);
@@ -18,17 +22,47 @@
 
       return (
         <div  className="wrapper">
-          <h1>Welcome to blogpost, click on links below to read various blog posts </h1>
+          <Navbar bg="primary" variant="dark">
+            <Container>
+              <Navbar.Brand href="/">Home</Navbar.Brand>
+              <Nav className="me-auto">
+                <Nav.Link href="/posts/newblog">Publish Blog</Nav.Link>
+              </Nav>
+            </Container>
+          </Navbar>
+          <Container>
+            <Row className="mt-2"> 
+            <Card bg="light" text="dark" className="mb-2">
+              <Card.Body>
+                <Card.Title> <h3> Welcome to CloudFare Blogs </h3> </Card.Title>
+                  <Card.Text> A collection of insightful blogs from CloudFare Users all across the world </Card.Text>  
+              </Card.Body>
+              </Card>
+            </Row>
+              
+          </Container>
+
+          <Container className = "ml-4"> 
+          <Row xs={1} md={2} className="g-4 mt-4"> 
           {posts.map((post) => (
-            <div key={post.id}>
-              <h3>
-                <Link to={`/posts/${post.id}`}>{post.title}</Link>
-              </h3>
+            <Col> 
+              <div key={post.id}>
+              <Card  className = "">
+                  <Card.Body>
+                    <Card.Title>{post.title}</Card.Title>
+                    <Card.Text>
+                      Info about the blog...............
+                    </Card.Text>
+                  <Button variant="primary" href={`/posts/${post.id}`}>Read More</Button>
+                  </Card.Body>
+              </Card>
             </div>
+            </Col>
           ))}
-          <h2>
-                <Link to={`/posts/newblog`}>Click Here to write new blog ! </Link>
-          </h2>
+          </Row>
+          </Container>
+          
+          
         </div>
       );
     };
