@@ -7,7 +7,7 @@ workers_dev = true
 compatibility_date = "2021-11-02"
 webpack_config = "webpack.config.js"
 kv-namespaces = [
-   { binding = "BLOGKV_PROD", id = "f4ed5fe466ff4b02b93bd1a55d13c77b" }
+   { binding = "BLOGKV_PROD", id = "f4ed5fe466ff4b02b93bd1a55d13c77b"}
 ]
 
 [build]
